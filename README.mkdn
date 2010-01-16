@@ -1,0 +1,22 @@
+# NAME
+
+Any::Image -
+
+# SYNOPSIS
+
+  use Any::Image;
+
+# DESCRIPTION
+
+Any::Image is
+
+# AUTHOR
+
+Masahiro Chiba <nihen@megabbs.com>
+
+# SEE ALSO
+
+# LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
