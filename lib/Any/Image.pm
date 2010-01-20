@@ -5,7 +5,7 @@ our $VERSION = '0.01';
 
 use UNIVERSAL::require;
 
-our $GUESS_DRIVERS = [qw/Image::Imlib2 Imager GraphicsMagick ImageMagick GD/];
+our $GUESS_DRIVERS = [qw/Image::Imlib2 Imager Image::Magick Image::Epeg GD/];
 
 sub _guess_driver_class {
     my $file = shift;
