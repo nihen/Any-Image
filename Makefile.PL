@@ -4,7 +4,7 @@ all_from 'lib/Any/Image.pm';
 readme_from 'lib/Any/Image.pm';
 githubmeta;
 
-# requires '';
+requires 'UNIVERSAL::require';
 
 tests 't/*.t';
 author_tests 'xt';
