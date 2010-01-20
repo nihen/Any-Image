@@ -1,0 +1,6 @@
+- filetypeによってdriver_classをguess
+- GDのsaveのところがjpeg固定になってる件
+- STDOUTとかに流したいとかDBに保存するときとかようにスカラで画像データ返すメソッド
+- ファイルタイプを指定して保存とか
+- Thumbnail(care ratio)
+
