@@ -1,9 +1,14 @@
+package t::lib::TestAnyImage;
 use strict;
+use warnings;
+
 use Test::More;
 
 use Any::Image;
 
-for my $driver ( undef, qw/Image::Imlib2 Imager Image::Magick GD Image::Epeg/ ) {
+sub run_basic_tests {
+    my $driver = shift;
+
     my $img = Any::Image->load('t/img/hoge.jpg', $driver ? {driver => $driver} : undef);
 
     ok 1, "Driver " . ($driver || 'auto');
@@ -26,6 +31,4 @@ for my $driver ( undef, qw/Image::Imlib2 Imager Image::Magick GD Image::Epeg/ ) 
     unlink 't/img/hoge_write.jpg';
 }
 
-
-done_testing;
-
+1;

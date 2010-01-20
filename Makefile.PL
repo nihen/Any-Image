@@ -10,6 +10,7 @@ tests 't/*.t';
 author_tests 'xt';
 
 build_requires 'Test::More';
+build_requires 'Test::Requires';
 auto_set_repository;
 auto_include;
 WriteAll;
