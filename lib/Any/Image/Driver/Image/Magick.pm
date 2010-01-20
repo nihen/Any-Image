@@ -34,5 +34,8 @@ sub save {
     $self->{img}->Write($file);
 }
 
+sub _clone_img {
+    $_[0]->{img}->Clone;
+}
 
 1;

@@ -45,5 +45,8 @@ sub save {
     close $wfh;
 }
 
+sub _clone_img {
+    $_[0]->{img}->clone;
+}
 
 1;

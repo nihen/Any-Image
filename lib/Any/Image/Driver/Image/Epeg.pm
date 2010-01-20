@@ -20,6 +20,17 @@ sub load {
     $self->{height} = $img->get_height;
 }
 
+sub img {
+    my $self = shift;
+
+    if ( @_ ) {
+        $self->{img}    = $_[0];
+        $self->{width}  = $_[0]->get_width;
+        $self->{height} = $_[0]->get_height;
+    }
+    $self->{img};
+}
+
 sub width {
     $_[0]->{width};
 }
@@ -39,6 +50,17 @@ sub save {
     my ($self, $file) = @_;
 
     $self->{img}->write_file($file);
+}
+
+sub clone {
+    my $self = shift;
+
+    my $data = $self->{img}->get_data;
+    $self->img(Image::Epeg->new(\$data));
+
+    my $new_img = (ref $self)->new;
+    $new_img->img(Image::Epeg->new(\$data));
+    return $new_img;
 }
 
 

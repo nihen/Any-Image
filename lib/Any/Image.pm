@@ -50,6 +50,7 @@ Any::Image -
   use Any::Image;
 
   my $img = Any::Image->load('hoge.jpg');
+  my $new_img = $img->clone;
   $img->resize(100, 100);
   $img->width;
   $img->height;
