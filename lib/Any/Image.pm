@@ -3,6 +3,42 @@ use strict;
 use warnings;
 our $VERSION = '0.01';
 
+use UNIVERSAL::require;
+use Any::Image::Driver::Image::Imlib2;
+
+our $GUESS_DRIVERS = [qw/Image::Imlib2 Imager GraphicsMagick ImageMagick GD/];
+
+sub _guess_driver_class {
+    my $file = shift;
+    my $args = shift;
+
+    if ( $args->{driver} ) {
+        my $driver = 'Any::Image::Driver::' . $args->{driver};
+        $driver->require;
+        return $driver;
+    }
+    else {
+        foreach my $_driver ( @{$GUESS_DRIVERS} ) {
+            my $driver = 'Any::Image::Driver::' . $_driver;
+            return $driver if $driver->require;
+        }
+    }
+}
+
+sub load {
+    my $class = shift;
+    my $file  = shift;
+    my $args  = shift || {};
+
+    my $driver_class = _guess_driver_class($file, $args)
+        or die("driver not found");
+
+    my $img = $driver_class->new();
+    $img->load($file);
+
+    return $img;
+}
+
 1;
 __END__
 
