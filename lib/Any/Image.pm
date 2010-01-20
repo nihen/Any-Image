@@ -4,7 +4,6 @@ use warnings;
 our $VERSION = '0.01';
 
 use UNIVERSAL::require;
-use Any::Image::Driver::Image::Imlib2;
 
 our $GUESS_DRIVERS = [qw/Image::Imlib2 Imager GraphicsMagick ImageMagick GD/];
 
@@ -49,6 +48,12 @@ Any::Image -
 =head1 SYNOPSIS
 
   use Any::Image;
+
+  my $img = Any::Image->load('hoge.jpg');
+  $img->resize(100, 100);
+  $img->width;
+  $img->height;
+  $img->save('huga.jpg');
 
 =head1 DESCRIPTION
 
