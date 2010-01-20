@@ -4,6 +4,12 @@ NAME
 SYNOPSIS
       use Any::Image;
 
+      my $img = Any::Image->load('hoge.jpg');
+      $img->resize(100, 100);
+      $img->width;
+      $img->height;
+      $img->save('huga.jpg');
+
 DESCRIPTION
     Any::Image is
 
