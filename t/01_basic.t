@@ -7,7 +7,7 @@ use Any::Image;
 
 for my $driver ( @{$Any::Image::GUESS_DRIVERS} ) {
     subtest $driver => sub {
-        test_requires $driver;
+        test_requires 'Any::Image::Driver::' . $driver;
         local $Any::Image::GUESS_DRIVERS = [$driver];
         for my $_driver (undef, $driver) {
             t::lib::TestAnyImage::run_basic_tests($_driver);
